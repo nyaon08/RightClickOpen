@@ -36,9 +36,7 @@ public class ChestInteractListener extends RSListener<RightClickOpen> {
         Action action = e.getAction();
         ItemStack item = player.getInventory().getItemInMainHand();
 
-        if (item.getType() == Material.AIR) return;
-
-        if (player.isSneaking() && action == Action.RIGHT_CLICK_AIR && item.getType().name().endsWith("SHULKER_BOX")) {
+        if (player.isSneaking() && action == Action.RIGHT_CLICK_AIR) {
             if (!(item.getItemMeta() instanceof BlockStateMeta meta)) return;
             if (!(meta.getBlockState() instanceof ShulkerBox shulkerBox)) return;
 
